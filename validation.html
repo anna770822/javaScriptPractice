@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>validation</title>
+</head>
+<body>
+  <span>ID</span>
+  <input id="idnum" type="text">
+  <input type="button" onclick="validation()" value="validate">
+  <div id="message"></div>
+  
+
+
+
+  <script>
+
+    function validation(){
+      var idnum = document.getElementById("idnum").value;
+      if (idnum == ""){alert("Please Enter");}
+      else if (!isNaN(idnum)){alert("Please Enter Alphebet");}
+      else if (idnum.length != 10 ){alert("Must be 10 digit");}
+      else{document.getElementById("message").innerHTML= "validation pass"};
+    }
+  </script>
+</body>
+</html>
