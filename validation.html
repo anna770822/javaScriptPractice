@@ -9,6 +9,7 @@
   <input id="idnum" type="text">
   <input type="button" onclick="validation()" value="validate">
   <div id="message"></div>
+
   
 
 
@@ -20,7 +21,8 @@
       if (idnum == ""){alert("Please Enter");}
       else if (!isNaN(idnum)){alert("Please Enter Alphebet");}
       else if (idnum.length != 10 ){alert("Must be 10 digit");}
-      else{document.getElementById("message").innerHTML= "validation pass"};
+      else{
+        idnum.slice(1,2)==1? document.getElementById("message").innerHTML= "'Mr' passed validation":document.getElementById("message").innerHTML= "'Ms.' passed validation";};
     }
   </script>
 </body>
