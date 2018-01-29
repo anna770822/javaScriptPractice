@@ -7,6 +7,9 @@
 <body>
   <img id="img" src="img/on.jpg">
   <div id="timer">5</div>
+  <input id="input" type="text">
+  <input id="submit" type="button" value="Submit" onclick="resetTimer()">
+  <br>
   <button id="button" onclick="onAndOff()">On/Off</button>
    
 
@@ -25,17 +28,30 @@
       };
     }
     // timer function//
-    var timeLeft = 5
+    var timeLeft =5;
     function countDown(){
+      
       timeLeft -=1;
-      document.getElementById("timer").innerHTML = timeLeft
-      if (timeLeft<=0){document.getElementById("img").src="img/off.jpg";
-         clearInterval(setTime);
+      document.getElementById("timer").innerHTML = timeLeft;
+      if (timeLeft<=0){document.getElementById("img").src="img/off.jpg";state=false;
+      clearInterval(setTime);
+    
+      }
 
     }
-     
+    // reset timer function//
+    function resetTimer(){
+    var input = document.getElementById("input").value;
+    if (isNaN(input)){alert("Please Enter Numbers!")};
+    timeLeft=parseInt(input);
+
+    console.log(timeLeft);
+
     }
     var setTime = setInterval(countDown,1000);
+    
+
+
     
   </script>
 </body>
