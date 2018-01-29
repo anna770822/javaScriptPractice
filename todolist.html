@@ -5,8 +5,14 @@
   <title>Document</title>
 </head>
 <body>
-  <input type="text" id="input">
-  <input type="button" id="button" value="+" onclick="addToDo()">
+  <form>
+    <input type="text" id="input">
+    
+    緊急:<input type="radio" id="emergency" onclick="uncheckedUnemergency()"checked>
+    不緊急:<input type="radio" id="unemergency" onclick="uncheckedEmergency()">
+
+    <input type="button" id="button" value="+" onclick="addToDo()">
+  </form>
   <div id="container"></div>
 
 
@@ -19,6 +25,13 @@
     //有一個input,一個+按扭// 
     //有一個 container 裡面會放 新增的 todo//
     //每個todo都會有一個 R 和一個v 按扭//
+    function uncheckedUnemergency(){
+      document.getElementById("unemergency").checked=false;
+    }
+    function uncheckedEmergency(){
+      document.getElementById("emergency").checked=false;
+      document.getElementById("unemergency").checked=true;
+    }
     function addToDo(){
       var container=document.getElementById("container");
 
@@ -30,6 +43,11 @@
       var input = document.getElementById("input").value;
       if (input==""){input="Nothing To Do";}
       span.innerHTML = input;
+      //add radio button//
+      var status = document.getElementById("emergency").checked;
+      console.log(status);
+      if (status == true){span.style.color = "red";}
+      else{span.style.color = "green";}
       todo.appendChild(span);
       
       //在input輸入 按下R 會替換 todo 的內容//
