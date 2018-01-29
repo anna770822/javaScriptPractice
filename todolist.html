@@ -48,7 +48,11 @@
         var answer = confirm("Confirm Delete?")
         console.log(answer);
         if (answer==true){
-        this.parentNode.parentNode.removeChild(todo);}
+
+        todo.removeChild(replaceButton);
+        todo.removeChild(removeButton);
+        span.style.color="red";
+        }
         else{return;}
         
       }
