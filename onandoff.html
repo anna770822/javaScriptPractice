@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>on and off</title>
+</head>
+<body>
+  <img id="img" src="img/on.jpg">
+  <div id="timer">5</div>
+  <button id="button" onclick="onAndOff()">On/Off</button>
+   
+
+
+
+  <script>
+    // button function //
+    var state = true;
+    function onAndOff(){
+      var img = document.getElementById("img");
+      if(state == true){
+        img.src="img/off.jpg";state = false;
+      }
+      else{
+        img.src="img/on.jpg";state=true;
+      };
+    }
+    // timer function//
+    var timeLeft = 5
+    function countDown(){
+      timeLeft -=1;
+      document.getElementById("timer").innerHTML = timeLeft
+      if (timeLeft<=0){document.getElementById("img").src="img/off.jpg";
+         clearInterval(setTime);
+
+    }
+     
+    }
+    var setTime = setInterval(countDown,1000);
+    
+  </script>
+</body>
+</html>
