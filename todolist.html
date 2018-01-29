@@ -45,11 +45,16 @@
 
       //按下v 會刪除整個 todo//
       removeButton.onclick=function(){
-        this.parentNode.parentNode.removeChild(todo);
+        var answer = confirm("Confirm Delete?")
+        console.log(answer);
+        if (answer==true){
+        this.parentNode.parentNode.removeChild(todo);}
+        else{return;}
+        
       }
       removeButton.textContent="V";
       todo.appendChild(removeButton);
-      
+      //按下+後input 內容要清空//
       document.getElementById("input").value="";
 
       container.appendChild(todo);
