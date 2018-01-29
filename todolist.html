@@ -2,21 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>ToDoList</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    #title{font-size: 30px;margin-top: 20px;}
+    .container{margin-top: 20px;}
+    .form-inline{margin-top: 10px;}
+    .todo{margin-top: 10px;}
+
+
+  </style>
 </head>
 <body>
-  <form>
-    <input type="text" id="input">
+  <div class="container text-center">
+    <div class="row">
+      <div id="title">To Do List</div>
+      <form class="form-inline">
+        <input type="text" id="input" >
     
-    緊急:<input type="radio" id="emergency" onclick="uncheckedUnemergency()"checked>
-    不緊急:<input type="radio" id="unemergency" onclick="uncheckedEmergency()">
+        緊急: <input type="radio" id="emergency" onclick="uncheckedUnemergency()"checked>
+        不緊急: <input type="radio" id="unemergency" onclick="uncheckedEmergency()">
 
-    <input type="button" id="button" value="+" onclick="addToDo()">
-  </form>
-  <div id="container"></div>
-
-
-
+        <input type="button" id="button" value="+" onclick="addToDo()" class="btn btn-primary">
+      </form>
+      <div id="todolistcontainer" class="table"></div>
+    </div>
+  </div>
 
 
 
@@ -33,9 +44,10 @@
       document.getElementById("unemergency").checked=true;
     }
     function addToDo(){
-      var container=document.getElementById("container");
+      var todolistcontainer=document.getElementById("todolistcontainer");
 
       var todo = document.createElement("div");
+      todo.classList.add("todo")
       var span = document.createElement("span");
       var replaceButton = document.createElement("button");
       var removeButton = document.createElement("button");
@@ -79,13 +91,14 @@
       //按下+後input 內容要清空//
       document.getElementById("input").value="";
 
-      container.appendChild(todo);
+      todolistcontainer.appendChild(todo);
 
     }
 
     
 
   </script>
+
   
 </body>
 </html>
