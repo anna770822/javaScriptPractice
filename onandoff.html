@@ -3,15 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <title>on and off</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style type="text/css">
+    span{font-size: 20px;}
+    #timer{font-size: 30px;}
+    .countdown{margin-top: 10px;}
+    img{width: 80%;margin: 10px;border-radius: 10px;}
+  </style>
+
 </head>
 <body>
-  <img id="img" src="img/on.jpg">
-  <div id="timer">5</div>
-  <input id="input" type="text">
-  <input id="submitButton" type="button" value="Submit" onclick="resetTimer()">
-  <br>
-  <button id="button" onclick="onAndOff()">On/Off</button>
+  <div class="container">
+    <div class="row">
+      <div class="countdown text-center">
+        <span>Count Down:</span>
+        <div id="timer">5</div>
+        <input id="input" type="text">
+        <input id="submitButton" type="button" value="Submit" onclick="resetTimer()" class="btn btn-primary" >
+
+        <button id="button" onclick="onAndOff()" class="btn btn-primary">On/Off</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="image-box col-sm-offset-1 col-sm-10 text-center">
+        <img id="img" src="img/on.jpg">
+      </div>
+    </div>
+    
+  </div>
   <script>
+    //CSS setting//
+   
     // button function //
     var state = true;
     function onAndOff(){
@@ -30,12 +53,17 @@
       document.getElementById("timer").innerHTML = timeLeft;
       if (timeLeft<=0){document.getElementById("img").src="img/off.jpg";state=false;
       clearInterval(setTime);
-     
-      console.log(setTime);}
+      console.log(setTime);
+      var submitButton=document.getElementById("submitButton")
+      submitButton.classList.add("btn-primary")
+    }
     }
     //resetTimer function//
    
     function resetTimer(){
+    var submitButton=document.getElementById("submitButton")
+    submitButton.classList.remove("btn-primary")
+
     var input = document.getElementById("input").value;
     console.log(input);
     if (isNaN(input)){alert("Please Enter Numbers!")}
@@ -49,5 +77,6 @@
     var setTime = setInterval(countDown,1000);
 
   </script>
+   
 </body>
 </html>
