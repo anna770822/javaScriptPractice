@@ -3,13 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <title>validation</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    #title{font-size: 30px;padding-top: 30px;text-align: center;}
+    .validation{text-align: center;}
+    .validation{margin-top: 20px;}
+    
+  </style>
 </head>
 <body>
-  <span>ID</span>
-  <input id="idnum" type="text">
-  <input type="button" onclick="validation()" value="validate">
-  <div id="message"></div>
+  <div class="container">
+    <div class="row">
 
+    <div id="title">ID</div>
+    <div class="validation">
+      <input id="idnum" type="text">
+      <input type="button" onclick="validation()" value="validate" class="btn btn-primary">
+    </div>
+    <div class="validation">
+      <div id="message"></div>
+    </div>
+  </div>
+</div>
   
 
 
